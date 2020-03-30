@@ -1,0 +1,322 @@
+Semana Omnistack
+	Tecnologias aplicadas ao curso
+		Javascript, HTML, CSS, NodeJS, ReactJS, React Native, Expo;
+	Aplicação
+		Criação de uma app que fará a gerência de casos de ONGs;
+
+
+PRIMEIRO DIA
+	Apresentar aplicação
+
+		Aplicação "Be The Hero", a ideia é criar uma aplicação web/mobile que possa gerenciar ONGs e seus projetos;
+
+	Configurar ambiente de desenvolvimento
+
+		Node.js e NPM
+			Instalação do gerenciador de pacotes "Chocolatey" no windows;
+			Instalação do NodeJS pelo gerenciador de pacotes (NodeJS e NPM);
+
+		Visual Studio Code
+			Instalação do VSCode baixado do site, configuração do Tema "Dracula" e adição do Material Icon Theme;
+
+	Endenter sobre front-end e back-end
+
+		Back-end
+			O Back-end é todo o mecanismo que não é apresentado ao usuário, como:
+				Regras de negocio;
+				Conexão com o Banco de Dados;
+				Envio de E-Mail;
+				Comunicação com WebServices;
+				Autenticação do Usuário;
+				Criptografia e Segurança
+
+		Front-end
+			O Front-end é toda a parte que é apresentada ao usuário
+
+		A comunicação do Back-end com o Front-end é realizado pela estrura JSON.
+
+	Criar projeto com Node.js
+		Criar pasta do projeto;
+		Executar comando "npm init -y";
+		Abrir pasta do projeto no VSCode;
+		Instalar Express pelo terminal;
+		Criar arquivo index principal;
+		Importar o express no index.js, criar o app, rota inicial e rodar na porta "3333";
+		Testar no browser;
+
+	Entender sobre React & SPA
+		SPA (Single Page Application):
+			React cria a interface no lado do usuário;
+			Pagina faz a requisição ou chamada a API RestFull que retorna uma resposta um JSON;
+			O back-end retorna apenas dados e não tem responsabilidade em criar as paginas;
+			Assim o back-end é apenas utilizado qdo necessário;
+			O React fica responsável por todas a parte do front-end;
+			Facilita o consumo do back-end para varios front-end (Web e Mobile) e utiliando o mesmo back-end; 
+
+	Criar projeto React.js
+
+			Criar projeto utilizando o NPX pelo terminal com o comando "npx create-react-app frontend";
+			Uma estrutura é criada já funcional e pode ser vizualidado no browser executando o comando "npm start";
+			
+	Entender sobre  React Native & Expo
+			Nas formas antigas eram criados aplicações para Android e IOs diferentes;
+			Com o react é feita apenas um app e pode ser gerado para ambos utilizando o react native;
+			O código é entendivel pois é feita com o Javascript Core;
+			
+			O Expo é uma aplicação que dispensa a utilzação de SDK Android e XCode IOs para gerar os apps;
+			Apenas nos preocuparemos com o javascript do nosso aplicativo;
+
+
+SEGUNDO DIA
+
+	Node.js & Express
+		Rotas e recursos
+
+			Rotas são o caminho completo que a aplicação terá, exemplo "http://localhost:3333/users"
+			Recurso são os complementos incluídos na raiz da rota, exemplo "/users"
+			
+		Métodos HTTP
+
+			Os métodos são as funcionalidades do conseito de HTTP
+			Métodos HTTP
+				GET: Buscar uma informação do back-end
+				POST: Criar uma informação no back-end
+				PUT: Alterar uma informação no back-end
+				DELETE: Deletar uma informação no back-end
+
+		Tipos de Parâmetros
+			Os parametros são informação que passamos na nossa rota para aplicação;
+			São iniciados após o uso do "?" e são anexados (multiplos) com o "&", exemplo: "http://localhost:3333/users?page=2&nome=wagner&idade=37"
+			Tipos de parâmetros
+				Query Params: São parâmentros enviados na rota após o "?" e são utilizados para (filtros, paginação)
+				Route Params: São utilizados para identificar um recurso, exemplo: "users/:id" é esperado
+				Request body: São parametros enviados para o back-end em formato JSON
+
+	Utilizando o Insomnia
+		O insomnia é uma programa que possíbilita a simulação/testes das funcionabilidades 
+		da nossa aplicação durante a fase de back-end
+		Existem outros programas similares, estou utilizando o Postman
+		
+	Configurando Nodemon
+		Instalar o nodemon com o comando "npm install nodemon -D"
+		Alterar o script do package.json para "scripts": { "start": "nodemon index.js" }"
+		Startar o servidor com o comando "npm start"
+	
+	Diferênças entre bancos de dados
+		SQL (Relacionais) : MySQL, MariaDB, SQLite, PostgreSQL, Oracle, MS SQL Server
+		NoSQL (Não Relacionais): MongoDB, CouchDB, IBM Domino, ArangoDB
+						
+
+	Configurando o banco de dados
+		Existem 3 formas
+			Driver: SELECT * FROM users
+			Query builder: table(users).select('*').where()
+			
+		Vamos utilizar a forma Query Builder como knex.js
+		Instalação com os comandos "npm install knex" e "npm install sqlite3"
+		Iniciar o knex ""
+		Configurar o caminho do banco em connection >> filename
+
+	Pensando nas entidades e funcionalidades
+		
+		Entidades
+			ONGS
+			CASOS
+		Funcionalidades
+			Login, Logout, Cadastrar ONG, Cadastrar CASOS, Deletar CASOS, Listar CASOS de uma ONG, Lista todos CASOS, Entrar em contato
+			
+	Construção do Back-end
+		Contrução das funcionalidades e respectivas rotas rotas
+
+	Adicionando módulo CORS
+		Instalação com o comando "npm install cors"
+		importação para o Index.Js "const cors = require('cors');" e após a criação do objeto app, incluir o cors com "app.use(cors());"
+
+	Enviando o back-end ao GitHub
+		Criar uma conta no GitHub;
+		Criar um repository e copiar a URL fornecida para tal;
+		Criar um arquivo ".gitignore" dentro da pasta backend para ignorar a importação da pasta "node_modules"
+		Criar um Commit na aba Source Controle
+		Criar a importação para o GitHub (Ctrl+Shift+p e procurar por "Git: Add Remote", Nomear e inserir a URL do Git) e aplicar com push
+
+TERCEIRO DIA
+
+	Limpando a estrutura
+		Limpando os arquivos desnecessários para manter uma estrutura incial
+	Conceitos React
+		Componentes
+			Um componente em React é uma função que retorna HTML
+		JSX
+			JavaScript XML, é quando o HTML esta integrado dentro do JavaScript
+		Propriedades
+			São como os atributos HTML mas para os componentes.
+		Estado
+			Informações mantidas pelo componente
+		Imutabilidade
+			As variáveis dentro de um componente são imutáveis, então é necessário trabalha com o conceito de estado para manipulá-las
+
+	Página de login
+		Criação dos arquivos .js e .css com HTML estática para uma ONG logar na aplicação
+
+	Configurando rotas
+		Configurando as rotas para funcionalidades integrando o back-end
+
+	Cadastro de ONGs
+		Criação dos arquivos .js e .css com HTML estática para cadastrar uma nova ONG
+
+	Listando Casos
+		Criação dos arquivos .js e .css com HTML estática para listar os casos
+
+	Cadastrando um novo Caso
+		Criação dos arquivos .js e .css com HTML estática para cadastra um novo caso
+
+	Conectando aplicação a API
+
+		Configurando as rotas para funcionalidades integrando o back-end
+
+	Enviando projeto para GitHub
+		Enviar um novo commir para o GitHub
+
+
+QUARTO DIA
+
+	Instalação do Expo
+		Pelo terminal, com o NPM instalado, executar o comando de forma global com -g na pasta raiz do projeto "AULAS no caso", exemplo: "npm install -g expo-cli";
+		Executar o comando "expo -h" para verificar se esta tudo certo;
+		Problemas podem ser pesquisado no FAQ da RocketSeat em "https://github.com/Rocketseat/expo-common-issues";
+		
+	Criando projeto React Native
+		Para criar o projeto, executar o comando "expo init <nome_do_projeto>" após selecionar o template;
+
+	Executando Projeto
+		Utilizando o app "Expo" existente nas stores;
+		Executar o comando "npm start" dentro da pasta do projeto criado;
+			No celular
+				Na janela que abrirá, fazer a sincronia com o QR Code oferecido no app Expo;
+				Pode se conectar via cabo no com seu aparelho conectado;
+			Emuladores
+				Intalar um emulador, vide vídeo da RocketSeat sobre o assunto;
+				Clicar em "Run on <seu_emulador>"
+
+			Expo Snack
+				Acessar "https://snack.expo.io/", subir o projeto e testar;
+
+	Diferenças para o ReactJS
+		Elementos HTML
+			Em HTML temos uma variada gama de tags para utilizar, no React Native não temos, temos apenas as tags View que funciona como uma div, a tag Text que funciona como tags de texto e a stylesheet que funciona como o css;
+		
+		Semântica
+			Não possuí semântica, sendo assim, todo text é text sem discriminação;
+
+		Estilização
+			Flexbox
+				Todas as tags já possuí "display: flex" como padrão;
+
+			propriedades
+				As propriedades são parecidas as de HTML/CSS, apenas removendo o "-" e colocando a proxima letra em caixa alta;
+				Os valores que não são numeros tem que estar entre aspas;
+
+			Heranças de estilos
+				Não exite heraça, todos os elementos devem ter seu proprio estilo criado;
+
+			Estilização própria
+				Cadas elemento tem sua própria estilização;
+
+	
+	Icones e Splash Screen
+		Subistituir os arquivos de splash e icon na pasta assets do projeto;
+		Após da um reload;
+
+	Configurando navegação
+		Instalar o react navegation com o comando "npm install @react-navigation/native" e o "npm install @react-navigation/stack"
+		
+		react-native-screens
+		react-native-gesture-handler
+		react-native-safe-area-context
+		@react-native-community/masked-view 
+
+	Página de casos
+		Criação da página mobile de casos;
+		
+	Detalhe de casos
+		Criação da página de detalhes dos casos;
+		
+	Abrindo o whatsapp e E-mail
+		Configurar a chamada criando as funções para tais;
+		
+	Conexão com API
+		Criar a comunicação com o back-end;
+		
+	Enviando projeto para o GitHub
+		Enviar para o GitHub;
+QUINTO DIA
+	
+		Adicionando validação
+		
+			Utilizando a biblioteca celebrate instalando com o comando "npm install celebrate";
+			Casos de validação BODY, HEADERS, PARAMS e QUERY foram aplicados utilizando a biblioteca "celebrate" no projeto;
+			
+		Adicionando testes
+			Porque fazer testes?
+				Teste são fundamentais para garantir que o projeto não sofra alterações que afetem outros área do mesmo, vide grandes
+				projetos onde varios devs estão trabalhando e uma alteração em determinada parte pode não aparentar que causou problemas
+				mas em outras areas podem ser causado afetando-as;
+			TDD
+				Test-Driver Development -> Desenvolvimento Dirigido a Testes;
+				Existem duas maneira de criar testes;
+					Criar o projeto e depois criar os testes;
+					Criar os testes antes para depois usa-lo para criar o projeto (ou TDD);
+					
+			Configurando Jest
+				Instalar o JEST utilizando o comando "npm install jest -D";
+				Após instalado executar o comando "npx jest --init" ele fara as Pergutas:
+					Deseja incluir o script de test no no package.json: SIM;
+					Deseja executar os testes no NODE ou no BROWSER: NODE;
+					Deseja que o jest adicione "coverage reports": NÃO (por momento);
+					Deseja que limpe o mocks (apenas para estes teste): YES;
+				Será criado um arquivos "jest.config.js";
+					
+			Tipos de testes
+				Alguns tipos são Unitário e Integração dentre os mais importantes;
+				Teste de Integração testa por completo uma funcionabilidade, rota e etc.
+				Teste de Unidade faz um teste pontual;
+				
+			Configurando banco de testes
+				Adicionar em package.json "test": "cross-env NODE_ENV=test jest";
+				Adicionar em knexfile.js o escopo de teste setando o banco de teste;
+				Separar o index.js da aplicação para disvincular o listen (app.js e server.js);
+				Alterar a variável connection para que ela receba o valor correto quando estiver em ambiênte de teste;
+					const config = process.env.NODE_ENV === 'test' ? configuration.test : configuration.development ;
+					const connection = knex(config);
+				
+			Instalando supertest
+				Instalar o supertest com o comando "npm install supertest -D"
+				
+			Testando rotas de autenticação
+				Criar o teste de integração lembrando de adicionar o beforeEach() e o afterAll() para criar as migrates 
+				e finalizar os bancos ao final;
+		
+		Deploy (Hospedagem)
+			Alternativas
+				Heroku (Gratuito) -> NODE
+					Verificar vídeo na RocketSeat;
+				Digital Ocean (Pago) -> GERAL;
+					Verificar vídeo na RocketSeat;
+				AWS (Amazon Web Services), GCP (Google Cloud Platform) e MA (Microsoft Azure);
+				NetLify (Apenas Front-end);
+				
+			Qual escolher?
+				Verificar as melhores DevOps que se adapte ao seu projeto;
+			
+			Gerar APP Mobile?
+				Verificar vídeo na RocketSeat;
+		
+		Estudos daqui pra frente
+		
+			Padrões de códigos: ESLint, Prettier;
+			Autenticação JWT;
+			Styled Components;
+		
+		Dicas pra aproveitar melhor
+			GitHub;
+			LinkedIn;
