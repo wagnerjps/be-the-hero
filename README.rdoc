@@ -126,6 +126,8 @@ SEGUNDO DIA
 			Login, Logout, Cadastrar ONG, Cadastrar CASOS, Deletar CASOS, Listar CASOS de uma ONG, Lista todos CASOS, Entrar em contato
 			
 	Construção do Back-end
+		Criação das migrations "npx knex migrate:make create_<nome_da_tabela>";
+		Executar as migrates "npx knex migrate:latest";
 		Contrução das funcionalidades e respectivas rotas rotas
 
 	Adicionando módulo CORS
