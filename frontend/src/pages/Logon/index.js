@@ -35,7 +35,6 @@ export default function Logon(){
         <div className="logon-container">
             <section className="form">
                 <img src={logoImg} alt="Be The Hero" />
-
                 <form onSubmit={handleLogon}>
                     <h1>Faça seu logon</h1>
                     <input placeholder="Sua ID" 

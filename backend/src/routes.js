@@ -9,7 +9,6 @@ const SessionController = require("./controllers/SessionController");
 
 const routes = express.Router();
 
-
 //Apenas um Hello World com SEND
 //return response.send('Hello World');
 routes.get('/', InitController.testeRaiz);

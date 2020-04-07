@@ -3,6 +3,10 @@ const connection = require("../database/connection");
 module.exports = {
     
     async create(request, response){
+
+        console.log(process.env.APP_URL_BACKEND);
+        console.log(process.env.APP_URL_FRONTEND);
+
         const { id } = request.body;
 
         const ong = await connection('ongs').where('id', id).select('name').first();
